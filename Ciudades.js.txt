@@ -1,0 +1,53 @@
+let Web3 = require('web3');
+const Provider = require('@truffle/hdwallet-provider');
+const contract_abi = require('./Ciudades.json')
+
+const SmartContractAddress = "0xd3c44f7446e65c6b36519462cAe17ccfE0b98B58";
+const SmartContractABI = contract_abi;
+const address = "0x08b8b891005D8B5F7ae45B979dA6117c7352355c"
+const privatekey = "7064c2afe8f8d82e5d722b8c4d3d5028f89e8a9dc31c3c0350026483fb28ccdb";
+const rpcurl = "https://fantom-testnet.s.chainbase.online/v1/2FIU53a4E5OG5AUBFTWGAgXtIP5";
+
+const cityData = {
+    "pais": "Francia",
+    "ciudad_nombre": "Lyon",
+    "ciudad_poblacion": 3000000,
+    "ciudad_gentilico": "Lyones",
+    "ciudad_tamano": 100
+}
+
+const sendData = async () => {
+    console.log("connect to contract...");
+    const provider = new Provider(privatekey, rpcurl);
+    let web3 = new Web3(provider);
+    let myContract = new web3.eth.Contract(SmartContractABI, SmartContractAddress);
+    console.log("done");
+
+    try{
+        console.log("Registrando ciudad...");
+        let receipt = await myContract.methods.REGISTRAR(cityData.pais, 
+                                                    cityData.ciudad_nombre, 
+                                                    cityData.ciudad_poblacion, 
+                                                    cityData.ciudad_gentilico, 
+                                                    cityData.ciudad_tamano)
+                                                    .send({ from: address });
+        console.log(receipt);
+        console.log("Ciudad "+ cityData.ciudad_nombre + "registrada en el pais: "+cityData.pais);
+        console.log("\n");
+    } catch (e){
+        console.log(e);
+    }
+
+    try{
+        console.log("Consultando ciudad");
+        let tx = await myContract.methods.CONSULTAR(cityData.pais).call();    
+        console.log(tx);
+        console.log("\n");      
+    } catch (e){
+        console.log(e);
+    }
+ 
+    process.exit(1);
+}
+  
+sendData();

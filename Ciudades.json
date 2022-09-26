@@ -1,0 +1,177 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_pais",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_nombre",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_poblacion",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_gentilicio",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tamano",
+				"type": "uint256"
+			}
+		],
+		"name": "REGISTRAR",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_pais",
+				"type": "string"
+			}
+		],
+		"name": "CONSULTAR",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "poblacion",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "gentilicio",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tamano",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "isValue",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct cityData.Ciudad",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "paises",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "nombre",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "poblacion",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "gentilicio",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tamano",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "isValue",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
