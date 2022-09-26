@@ -6,11 +6,11 @@ You can test the Ciudades.sol Smart Contract contained in this repo by...
 
 - Clone this repo
 
-    git clone 
+    git clone https://github.com/g8fromsancristoche/Ciudades.git
 
 - Navigate to the directory of the project that you just clone
 
-    cd directory_name
+    cd Ciudades
 
 - Install dependecies
 
